@@ -207,6 +207,39 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             .align(alignment = Alignment.CenterHorizontally)
                     )
                 }
+
+                Column(
+                    modifier = Modifier
+                ) {
+                    // Health Card
+                    Card(
+                        modifier = Modifier.padding(16.dp),
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = 8.dp),
+                        shape = RoundedCornerShape(4.dp),
+                        colors = CardDefaults
+                            .cardColors(
+                                containerColor = MaterialTheme
+                                    .colorScheme.surfaceVariant
+                            ),
+                    ) {
+                        Image(
+                            painter = painterResource(R.drawable.random),
+                            contentDescription = stringResource(R.string.logo),
+                            modifier = modifier
+                                .size(40.dp).padding(8.dp)
+                        )
+                    }
+
+                    Text(
+                        stringResource(R.string.random),
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterHorizontally)
+                    )
+                }
             }
 
             Text(

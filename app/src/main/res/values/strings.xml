@@ -8,4 +8,5 @@
     <string name="health">Health</string>
     <string name="logo">logo</string>
     <string name="task_counter">You Have 10 Tasks For Today</string>
+    <string name="random">Random</string>
 </resources>

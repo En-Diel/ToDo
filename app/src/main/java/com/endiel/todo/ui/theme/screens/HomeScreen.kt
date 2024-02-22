@@ -21,18 +21,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.endiel.todo.R
 import com.endiel.todo.ToDoApp
 import com.endiel.todo.ui.theme.ToDoTheme
+import com.endiel.todo.ui.theme.fredokaFamily
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Surface(modifier = modifier.fillMaxSize()) {
-        Column(
-            modifier = Modifier
-        ) {
+        Column() {
             Card(
                 modifier = Modifier.padding(16.dp),
                 elevation = CardDefaults.cardElevation(
@@ -68,21 +69,23 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(R.string.categories),
-                modifier = Modifier.padding(16.dp)
+                fontFamily = fredokaFamily,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier
+                    .padding(16.dp)
+                    .align(alignment = Alignment.Start)
             )
             // A Row for Categories
             Row(
                 modifier = Modifier
             ) {
-                Column(
-                    modifier = Modifier
-                ) {
-                    // Personal Card
+                Column() {
+                    // work Card
                     Card(
                         modifier = Modifier.padding(16.dp),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(16.dp),
+                        shape = RoundedCornerShape(4.dp),
                         colors = CardDefaults
                             .cardColors(
                                 containerColor = MaterialTheme
@@ -93,14 +96,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             painter = painterResource(R.drawable.person),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(50.dp)
+                                .size(40.dp).padding(8.dp)
                         )
                     }
 
                     Text(
                         stringResource(R.string.personal),
-                        modifier = Modifier
-                            .align(alignment = Alignment.CenterHorizontally)
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
+                        modifier = Modifier.align(
+                            alignment = Alignment.CenterHorizontally)
                     )
                 }
 
@@ -112,7 +118,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(16.dp),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(16.dp),
+                        shape = RoundedCornerShape(4.dp),
                         colors = CardDefaults
                             .cardColors(
                                 containerColor = MaterialTheme
@@ -123,12 +129,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             painter = painterResource(R.drawable.work),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(50.dp)
+                                .size(40.dp).padding(8.dp)
                         )
                     }
 
                     Text(
                         stringResource(R.string.work),
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
                         modifier = Modifier.align(
                             alignment = Alignment.CenterHorizontally)
                     )
@@ -141,7 +150,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(16.dp),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(16.dp),
+                        shape = RoundedCornerShape(4.dp),
                         colors = CardDefaults
                             .cardColors(
                                 containerColor = MaterialTheme
@@ -152,13 +161,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             painter = painterResource(R.drawable.shopping),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(50.dp)
+                                .size(40.dp).padding(8.dp)
                         )
                     }
 
                     Text(
-                        stringResource(
-                            R.string.shopping),
+                        stringResource(R.string.shopping),
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterHorizontally)
                     )
@@ -172,7 +183,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(16.dp),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(16.dp),
+                        shape = RoundedCornerShape(4.dp),
                         colors = CardDefaults
                             .cardColors(
                                 containerColor = MaterialTheme
@@ -183,13 +194,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                             painter = painterResource(R.drawable.health),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(50.dp)
+                                .size(40.dp).padding(8.dp)
                         )
                     }
 
                     Text(
-                        stringResource(
-                            R.string.health),
+                        stringResource(R.string.health),
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterHorizontally)
                     )
@@ -198,8 +211,11 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(R.string.task_counter),
+                fontFamily = fredokaFamily,
+                fontWeight = FontWeight.Bold,
                 modifier = Modifier
                     .padding(16.dp)
+                    .align(alignment = Alignment.Start)
             )
             // Tasks list Card
             // TODO This card is going to be in a Lazy Column
@@ -229,15 +245,22 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
                     Text(
                         text = "Daily Code Challenge",
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Normal,
                         modifier = Modifier
                             .padding(start = 24.dp)
+                            .align(alignment = Alignment.CenterVertically)
                     )
 
                     Spacer(modifier = Modifier.width(48.dp))
                     // TODO Time has to be placed at the right end, instead of Spacer
                     Text(
                         text = "9:00 am",
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Light,
+                        fontSize = 12.sp,
                         modifier = Modifier
+                            .align(alignment = Alignment.CenterVertically)
                     )
                 }
             }

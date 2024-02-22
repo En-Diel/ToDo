@@ -2,9 +2,10 @@
     <string name="app_name">ToDo</string>
     <string name="front_title">Manage Your\nTime Well</string>
     <string name="categories">Categories</string>
-    <string name="Work">Work</string>
-    <string name="Personal">Personal</string>
-    <string name="Shopping">Shopping</string>
-    <string name="Health">Health</string>
+    <string name="work">Work</string>
+    <string name="personal">Personal</string>
+    <string name="shopping">Shopping</string>
+    <string name="health">Health</string>
     <string name="logo">logo</string>
+    <string name="task_counter">You Have 10 Tasks For Today</string>
 </resources>

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -18,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -29,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.endiel.todo.R
 import com.endiel.todo.ToDoApp
+import com.endiel.todo.ui.theme.Shapes
 import com.endiel.todo.ui.theme.ToDoTheme
 import com.endiel.todo.ui.theme.fredokaFamily
 
@@ -40,7 +39,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_large)),
+                shape = Shapes.large,
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
                 Row(
@@ -84,7 +83,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        shape = Shapes.small,
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
@@ -114,7 +113,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        shape = Shapes.small,
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
@@ -142,7 +141,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        shape = Shapes.small,
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
@@ -174,7 +173,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        shape = Shapes.small,
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
@@ -203,7 +202,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
-                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        shape = Shapes.small,
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
@@ -244,7 +243,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     .fillMaxWidth(),
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = dimensionResource(R.dimen.card_elevation_medium)),
-                shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_medium)),
+                shape = Shapes.medium,
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
             ) {
                 Row(

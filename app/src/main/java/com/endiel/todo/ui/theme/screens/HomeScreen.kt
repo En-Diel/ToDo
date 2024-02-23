@@ -1,5 +1,6 @@
 package com.endiel.todo.ui.theme.screens
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,6 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -32,14 +35,13 @@ import com.endiel.todo.ui.theme.fredokaFamily
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Surface(modifier = modifier.fillMaxSize()) {
-        Column {
+        Column(modifier = modifier) {
             Card(
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                 shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_large)),
-                colors = CardDefaults
-                    .cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -83,12 +85,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant),
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.person),
                             contentDescription = stringResource(R.string.logo),
+                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -100,6 +102,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterHorizontally)
                     )
@@ -112,12 +115,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.work),
                             contentDescription = stringResource(R.string.logo),
+                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -129,6 +132,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
                     )
                 }
@@ -139,12 +143,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.shopping),
                             contentDescription = stringResource(R.string.logo),
+                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -156,6 +160,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterHorizontally)
                     )
@@ -170,12 +175,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.health),
                             contentDescription = stringResource(R.string.logo),
+                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -187,6 +192,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
                     )
                 }
@@ -198,12 +204,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.random),
                             contentDescription = stringResource(R.string.logo),
+                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -215,6 +221,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterHorizontally)
                     )
@@ -238,8 +245,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 elevation = CardDefaults.cardElevation(
                     defaultElevation = dimensionResource(R.dimen.card_elevation_medium)),
                 shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_medium)),
-                colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant)
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
             ) {
                 Row(
                     modifier = Modifier
@@ -249,6 +255,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     Image(
                         painter = painterResource(R.drawable.radio_button),
                         contentDescription = stringResource(R.string.logo),
+                        colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
                         modifier = modifier
                             .size(15.dp)
                             .align(alignment = Alignment.CenterVertically)
@@ -269,6 +276,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier
                             .align(alignment = Alignment.CenterVertically),
                     )
@@ -278,9 +286,23 @@ fun HomeScreen(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_NO
+)
 @Composable
 fun ToDoLightPreview() {
+    ToDoTheme {
+        ToDoApp()
+    }
+}
+
+@Preview(
+    showBackground = true,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Composable
+fun ToDoDarkPreview() {
     ToDoTheme {
         ToDoApp()
     }

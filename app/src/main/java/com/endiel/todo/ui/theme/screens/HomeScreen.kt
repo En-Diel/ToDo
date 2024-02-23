@@ -4,12 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -19,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -33,28 +32,25 @@ import com.endiel.todo.ui.theme.fredokaFamily
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     Surface(modifier = modifier.fillMaxSize()) {
-        Column() {
+        Column {
             Card(
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                 elevation = CardDefaults.cardElevation(
-                    defaultElevation = 8.dp),
-                shape = RoundedCornerShape(24.dp),
+                    defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_large)),
                 colors = CardDefaults
-                    .cardColors(
-                        containerColor = MaterialTheme
-                            .colorScheme.surfaceVariant
-                    ),
+                    .cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 Row(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(16.dp)
+                        .padding(dimensionResource(R.dimen.padding_large))
                 ) {
                     Text(
                         text = stringResource(R.string.front_title),
                         modifier
-                            .padding(start = 24.dp)
+                            .padding(start = dimensionResource(R.dimen.padding_extra_large))
                             .align(alignment = Alignment.CenterVertically)
                     )
                     Image(
@@ -62,7 +58,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         contentDescription = stringResource(R.string.logo),
                         modifier = modifier
                             .size(80.dp)
-                            .padding(end = 24.dp)
+                            .padding(dimensionResource(R.dimen.padding_medium))
                     )
                 }
             }
@@ -72,31 +68,30 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 fontFamily = fredokaFamily,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(dimensionResource(R.dimen.padding_large))
                     .align(alignment = Alignment.Start)
             )
             // A Row for Categories
             Row(
-                modifier = Modifier
+                modifier = Modifier.fillMaxWidth(),
+                Arrangement.Absolute.SpaceEvenly
             ) {
-                Column() {
+                Column {
                     // work Card
                     Card(
-                        modifier = Modifier.padding(16.dp),
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(4.dp),
-                        colors = CardDefaults
-                            .cardColors(
-                                containerColor = MaterialTheme
-                                    .colorScheme.surfaceVariant
-                            ),
+                            defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant),
                     ) {
                         Image(
                             painter = painterResource(R.drawable.person),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(40.dp).padding(8.dp)
+                                .size(40.dp)
+                                .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
 
@@ -105,31 +100,27 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
-                        modifier = Modifier.align(
-                            alignment = Alignment.CenterHorizontally)
+                        modifier = Modifier
+                            .align(alignment = Alignment.CenterHorizontally)
                     )
                 }
 
-                Column(
-                    modifier = Modifier
-                ) {
+                Column(modifier = Modifier) {
                     // work Card
                     Card(
-                        modifier = Modifier.padding(16.dp),
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(4.dp),
-                        colors = CardDefaults
-                            .cardColors(
-                                containerColor = MaterialTheme
-                                    .colorScheme.surfaceVariant
-                            ),
+                            defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.work),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(40.dp).padding(8.dp)
+                                .size(40.dp)
+                                .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
 
@@ -138,30 +129,25 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
-                        modifier = Modifier.align(
-                            alignment = Alignment.CenterHorizontally)
+                        modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
                     )
                 }
-                Column(
-                    modifier = Modifier
-                ) {
+                Column(modifier = Modifier) {
                     // Shopping Card
                     Card(
-                        modifier = Modifier.padding(16.dp),
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(4.dp),
-                        colors = CardDefaults
-                            .cardColors(
-                                containerColor = MaterialTheme
-                                    .colorScheme.surfaceVariant
-                            ),
+                            defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.shopping),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(40.dp).padding(8.dp)
+                                .size(40.dp)
+                                .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
 
@@ -180,21 +166,19 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 ) {
                     // Health Card
                     Card(
-                        modifier = Modifier.padding(16.dp),
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(4.dp),
-                        colors = CardDefaults
-                            .cardColors(
-                                containerColor = MaterialTheme
-                                    .colorScheme.surfaceVariant
-                            ),
+                            defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.health),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(40.dp).padding(8.dp)
+                                .size(40.dp)
+                                .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
 
@@ -203,31 +187,26 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
-                        modifier = Modifier
-                            .align(alignment = Alignment.CenterHorizontally)
+                        modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
                     )
                 }
 
-                Column(
-                    modifier = Modifier
-                ) {
+                Column(modifier = Modifier) {
                     // Health Card
                     Card(
-                        modifier = Modifier.padding(16.dp),
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
-                            defaultElevation = 8.dp),
-                        shape = RoundedCornerShape(4.dp),
-                        colors = CardDefaults
-                            .cardColors(
-                                containerColor = MaterialTheme
-                                    .colorScheme.surfaceVariant
-                            ),
+                            defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
+                        shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_small)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant)
                     ) {
                         Image(
                             painter = painterResource(R.drawable.random),
                             contentDescription = stringResource(R.string.logo),
                             modifier = modifier
-                                .size(40.dp).padding(8.dp)
+                                .size(40.dp)
+                                .padding(dimensionResource(R.dimen.padding_medium))
                         )
                     }
 
@@ -247,26 +226,25 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 fontFamily = fredokaFamily,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(dimensionResource(R.dimen.padding_large))
                     .align(alignment = Alignment.Start)
             )
             // Tasks list Card
             // TODO This card is going to be in a Lazy Column
             Card(
                 modifier = Modifier
-                    .padding(16.dp)
+                    .padding(dimensionResource(R.dimen.padding_large))
                     .fillMaxWidth(),
                 elevation = CardDefaults.cardElevation(
-                    defaultElevation = 8.dp),
-                shape = RoundedCornerShape(16.dp),
-                colors = CardDefaults
-                    .cardColors(
-                        containerColor = MaterialTheme
-                            .colorScheme.surfaceVariant
-                    ),
+                    defaultElevation = dimensionResource(R.dimen.card_elevation_medium)),
+                shape = RoundedCornerShape(dimensionResource(R.dimen.rounded_corner_medium)),
+                colors = CardDefaults.cardColors(
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant)
             ) {
                 Row(
-                    modifier = Modifier.padding(24.dp)
+                    modifier = Modifier
+                        .padding(dimensionResource(R.dimen.padding_extra_large))
+                        .fillMaxWidth(), Arrangement.SpaceBetween
                 ) {
                     Image(
                         painter = painterResource(R.drawable.radio_button),
@@ -277,15 +255,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     )
 
                     Text(
-                        text = "Daily Code Challenge",
+                        text = "Daily Code Challenge from..",
                         fontFamily = fredokaFamily,
                         fontWeight = FontWeight.Normal,
                         modifier = Modifier
-                            .padding(start = 24.dp)
                             .align(alignment = Alignment.CenterVertically)
                     )
 
-                    Spacer(modifier = Modifier.width(48.dp))
+                    //Spacer(modifier = Modifier.width(48.dp))
                     // TODO Time has to be placed at the right end, instead of Spacer
                     Text(
                         text = "9:00 am",
@@ -293,7 +270,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         fontWeight = FontWeight.Light,
                         fontSize = 12.sp,
                         modifier = Modifier
-                            .align(alignment = Alignment.CenterVertically)
+                            .align(alignment = Alignment.CenterVertically),
                     )
                 }
             }
@@ -303,7 +280,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+fun ToDoLightPreview() {
     ToDoTheme {
         ToDoApp()
     }

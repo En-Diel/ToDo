@@ -7,6 +7,7 @@
     <dimen name="rounded_corner_small">4dp</dimen>
     <dimen name="rounded_corner_medium">16dp</dimen>
     <dimen name="rounded_corner_large">24dp</dimen>
+    <dimen name="card_elevation_extra_small">4dp</dimen>
     <dimen name="card_elevation_small">8dp</dimen>
     <dimen name="card_elevation_medium">16dp</dimen>
 </resources>

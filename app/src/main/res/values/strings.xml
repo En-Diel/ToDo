@@ -9,4 +9,10 @@
     <string name="logo">logo</string>
     <string name="task_counter">You Have 10 Tasks For Today</string>
     <string name="random">Random</string>
+    <string name="title">Nyimbo Mpya</string>
+    <string name="title2">Nyimbo Mpya2</string>
+    <string name="body">Mwanga umefanya watu waone wakosoe\nChombo kwenye maji lake jua, yake mvua</string>
+    <string name="body2">Mwanga umefanya watu waone wakosoe\nChombo kwenye maji lake jua, yake mvua2</string>
+    <string name="time">9:00 am</string>
+    <string name="time2">9:01 am</string>
 </resources>

@@ -5,13 +5,18 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +32,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.endiel.todo.R
 import com.endiel.todo.ToDoApp
+import com.endiel.todo.data.Note
+import com.endiel.todo.data.notes
 import com.endiel.todo.ui.theme.Shapes
 import com.endiel.todo.ui.theme.ToDoTheme
 import com.endiel.todo.ui.theme.fredokaFamily
@@ -84,12 +91,16 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                         elevation = CardDefaults.cardElevation(
                             defaultElevation = dimensionResource(R.dimen.card_elevation_small)),
                         shape = Shapes.small,
-                        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.onPrimary
+                        )
                     ) {
                         Image(
                             painter = painterResource(R.drawable.person),
                             contentDescription = stringResource(R.string.logo),
-                            colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
+                            colorFilter = ColorFilter.tint(
+                                color = MaterialTheme.colorScheme.primary
+                            ),
                             modifier = modifier
                                 .size(40.dp)
                                 .padding(dimensionResource(R.dimen.padding_medium))
@@ -241,46 +252,63 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .padding(dimensionResource(R.dimen.padding_large))
                     .fillMaxWidth(),
-                elevation = CardDefaults.cardElevation(
-                    defaultElevation = dimensionResource(R.dimen.card_elevation_medium)),
                 shape = Shapes.medium,
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
             ) {
-                Row(
-                    modifier = Modifier
-                        .padding(dimensionResource(R.dimen.padding_extra_large))
-                        .fillMaxWidth(), Arrangement.SpaceBetween
-                ) {
-                    Image(
-                        painter = painterResource(R.drawable.radio_button),
-                        contentDescription = stringResource(R.string.logo),
-                        colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
-                        modifier = modifier
-                            .size(15.dp)
-                            .align(alignment = Alignment.CenterVertically)
-                    )
-
-                    Text(
-                        text = "Daily Code Challenge from..",
-                        fontFamily = fredokaFamily,
-                        fontWeight = FontWeight.Normal,
-                        modifier = Modifier
-                            .align(alignment = Alignment.CenterVertically)
-                    )
-
-                    //Spacer(modifier = Modifier.width(48.dp))
-                    // TODO Time has to be placed at the right end, instead of Spacer
-                    Text(
-                        text = "9:00 am",
-                        fontFamily = fredokaFamily,
-                        fontWeight = FontWeight.Light,
-                        fontSize = 12.sp,
-                        color = MaterialTheme.colorScheme.primary,
-                        modifier = Modifier
-                            .align(alignment = Alignment.CenterVertically),
-                    )
+                LazyColumn() {
+                    items(notes) {
+                        NoteItem(
+                            note = it,
+                            modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
+                        )
+                    }
                 }
             }
+        }
+    }
+}
+
+@Composable
+fun NoteItem(note: Note,modifier: Modifier = Modifier) {
+    Card(
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = dimensionResource(R.dimen.card_elevation_extra_small)),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary),
+        modifier = modifier
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(dimensionResource(R.dimen.padding_extra_large))
+                .fillMaxWidth(), Arrangement.SpaceBetween
+        ) {
+            Image(
+                painter = painterResource(R.drawable.radio_button),
+                contentDescription = stringResource(R.string.logo),
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
+                modifier = modifier
+                    .size(15.dp)
+                    .align(alignment = Alignment.CenterVertically)
+            )
+
+            Text(
+                text = stringResource(androidx.compose.material3.R.string.bottom_sheet_collapse_description),
+                fontFamily = fredokaFamily,
+                fontWeight = FontWeight.Normal,
+                modifier = Modifier
+                    .align(alignment = Alignment.CenterVertically)
+            )
+
+            //Spacer(modifier = Modifier.width(48.dp))
+            // TODO Time has to be placed at the right end, instead of Spacer
+            Text(
+                text = stringResource(R.string.time),
+                fontFamily = fredokaFamily,
+                fontWeight = FontWeight.Light,
+                fontSize = 12.sp,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier
+                    .align(alignment = Alignment.CenterVertically),
+            )
         }
     }
 }

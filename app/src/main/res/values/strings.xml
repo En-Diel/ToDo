@@ -15,4 +15,5 @@
     <string name="body2">Mwanga umefanya watu waone wakosoe\nChombo kwenye maji lake jua, yake mvua2</string>
     <string name="time">9:00 am</string>
     <string name="time2">9:01 am</string>
+    <string name="arrow_down">Arrow down for expanding the card</string>
 </resources>

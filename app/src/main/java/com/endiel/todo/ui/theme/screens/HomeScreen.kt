@@ -85,7 +85,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 Arrangement.Absolute.SpaceEvenly
             ) {
                 Column {
-                    // work Card
+                    // A Personal Category Card
                     Card(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
@@ -119,7 +119,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 }
 
                 Column(modifier = Modifier) {
-                    // work Card
+                    // A Work Category Card
                     Card(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
@@ -147,7 +147,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     )
                 }
                 Column(modifier = Modifier) {
-                    // Shopping Card
+                    // A Shopping Category Card
                     Card(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
@@ -179,7 +179,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 Column(
                     modifier = Modifier
                 ) {
-                    // Health Card
+                    // A Health Category Card
                     Card(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
@@ -208,7 +208,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 }
 
                 Column(modifier = Modifier) {
-                    // Health Card
+                    // A Random Category Card
                     Card(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
                         elevation = CardDefaults.cardElevation(
@@ -237,7 +237,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     )
                 }
             }
-
+            // Tasks heading
             Text(
                 text = stringResource(R.string.task_counter),
                 fontFamily = fredokaFamily,
@@ -246,22 +246,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                     .padding(dimensionResource(R.dimen.padding_large))
                     .align(alignment = Alignment.Start)
             )
-            // Tasks list Card
-            // TODO This card is going to be in a Lazy Column
-            Card(
-                modifier = Modifier
-                    .padding(dimensionResource(R.dimen.padding_large))
-                    .fillMaxWidth(),
-                shape = Shapes.medium,
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary)
-            ) {
-                LazyColumn() {
-                    items(notes) {
-                        NoteItem(
-                            note = it,
-                            modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
-                        )
-                    }
+            // A Lazy column containing note cards
+            LazyColumn() {
+                items(notes) {
+                    NoteItem(
+                        note = it,
+                        modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
+                    )
                 }
             }
         }
@@ -274,22 +265,13 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
         elevation = CardDefaults.cardElevation(
             defaultElevation = dimensionResource(R.dimen.card_elevation_extra_small)),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary),
-        modifier = modifier
+        modifier = modifier.padding(dimensionResource(R.dimen.padding_large))
     ) {
         Row(
             modifier = Modifier
                 .padding(dimensionResource(R.dimen.padding_extra_large))
                 .fillMaxWidth(), Arrangement.SpaceBetween
         ) {
-            Image(
-                painter = painterResource(R.drawable.radio_button),
-                contentDescription = stringResource(R.string.logo),
-                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
-                modifier = modifier
-                    .size(15.dp)
-                    .align(alignment = Alignment.CenterVertically)
-            )
-
             Text(
                 text = stringResource(androidx.compose.material3.R.string.bottom_sheet_collapse_description),
                 fontFamily = fredokaFamily,
@@ -308,6 +290,16 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .align(alignment = Alignment.CenterVertically),
+            )
+        }
+
+        Column(modifier = Modifier.align(alignment = Alignment.End)) {
+            Image(
+                painter = painterResource(R.drawable.arrow_down),
+                contentDescription = stringResource(R.string.arrow_down),
+                colorFilter = ColorFilter.tint(color = MaterialTheme.colorScheme.primary),
+                modifier = modifier
+                    .size(30.dp)
             )
         }
     }

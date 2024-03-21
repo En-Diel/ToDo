@@ -265,11 +265,11 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
         elevation = CardDefaults.cardElevation(
             defaultElevation = dimensionResource(R.dimen.card_elevation_extra_small)),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onPrimary),
-        modifier = modifier.padding(dimensionResource(R.dimen.padding_large))
+        modifier = modifier.padding(dimensionResource(R.dimen.padding_small))
     ) {
         Row(
             modifier = Modifier
-                .padding(dimensionResource(R.dimen.padding_extra_large))
+                .padding(dimensionResource(R.dimen.padding_large))
                 .fillMaxWidth(), Arrangement.SpaceBetween
         ) {
             Text(
@@ -289,11 +289,12 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
                 fontSize = 12.sp,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
-                    .align(alignment = Alignment.CenterVertically),
             )
         }
 
-        Column(modifier = Modifier.align(alignment = Alignment.End)) {
+        Column(modifier = Modifier
+            .align(alignment = Alignment.End)
+            .padding(dimensionResource(R.dimen.padding_small))) {
             Image(
                 painter = painterResource(R.drawable.arrow_down),
                 contentDescription = stringResource(R.string.arrow_down),

@@ -1,5 +1,6 @@
 package com.endiel.todo.ui.theme.screens
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -13,15 +14,26 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FabPosition
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LargeFloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -38,9 +50,15 @@ import com.endiel.todo.ui.theme.Shapes
 import com.endiel.todo.ui.theme.ToDoTheme
 import com.endiel.todo.ui.theme.fredokaFamily
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-    Surface(modifier = modifier.fillMaxSize()) {
+    Scaffold(
+        floatingActionButton = {
+            AddNoteFloatingBtn(onClick = { /*TODO*/ }) },
+        floatingActionButtonPosition = FabPosition.Center,
+        content = {
+            Surface(modifier = modifier.fillMaxSize()) {
         Column(modifier = modifier) {
             Card(
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_large)),
@@ -257,6 +275,8 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             }
         }
     }
+        }
+    )
 }
 
 @Composable
@@ -303,6 +323,17 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
                     .size(30.dp)
             )
         }
+    }
+}
+
+@Composable
+fun AddNoteFloatingBtn(onClick: ()-> Unit) {
+    FloatingActionButton(
+        onClick = { /*TODO*/ },
+        shape = CircleShape,
+        containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary) {
+            Icon(Icons.Filled.Add, "Add a note")
     }
 }
 

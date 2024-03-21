@@ -38,8 +38,10 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.endiel.todo.R
@@ -75,9 +77,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = stringResource(R.string.front_title),
-                        modifier
-                            .padding(start = dimensionResource(R.dimen.padding_extra_large))
-                            .align(alignment = Alignment.CenterVertically)
+                        fontFamily = fredokaFamily,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 20.sp,
+                        modifier = modifier.padding(8.dp)
                     )
                     Image(
                         painter = painterResource(R.drawable.logo),
@@ -300,8 +303,6 @@ fun NoteItem(note: Note,modifier: Modifier = Modifier) {
                     .align(alignment = Alignment.CenterVertically)
             )
 
-            //Spacer(modifier = Modifier.width(48.dp))
-            // TODO Time has to be placed at the right end, instead of Spacer
             Text(
                 text = stringResource(R.string.time),
                 fontFamily = fredokaFamily,
